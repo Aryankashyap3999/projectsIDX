@@ -34,7 +34,7 @@ node -v && docker run --rm hello-world   # verify both
 
 ## 4. Get the code + build the sandbox image
 ```bash
-git clone https://github.com/Aryankashyap3002/projectsIDX.git ~/app
+git clone https://github.com/Aryankashyap3999/projectsIDX.git ~/app
 cd ~/app/ProjectService
 docker build -t projectsidx-sandbox .   # uses ./Dockerfile
 npm install
