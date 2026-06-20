@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/ui', bullServerAdapter.getRouter());
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api', apiRouter);
 
 app.listen(PORT, () => {

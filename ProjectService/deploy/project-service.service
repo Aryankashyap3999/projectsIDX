@@ -1,0 +1,21 @@
+# systemd alternative to pm2. Install at /etc/systemd/system/project-service.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now project-service
+# Adjust User, WorkingDirectory, and the node path (use `which node`).
+[Unit]
+Description=ProjectsIDX ProjectService (Docker sandbox + Socket.IO)
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=deploy
+WorkingDirectory=/home/deploy/app/ProjectService
+ExecStart=/usr/bin/env node src/index.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+# EnvironmentFile=/home/deploy/app/ProjectService/.env
+
+[Install]
+WantedBy=multi-user.target

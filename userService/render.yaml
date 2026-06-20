@@ -1,0 +1,33 @@
+# Render Blueprint for userService.
+# In Render: New > Blueprint > point at this repo. Secrets (sync:false) are entered
+# in the dashboard, not committed. Render injects PORT automatically.
+services:
+  - type: web
+    name: projectsidx-user-service
+    runtime: node
+    rootDir: userService
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PROD_DB_URL
+        sync: false
+      - key: ENABLE_EMAIL_VERIFICATION
+        value: "true"
+      - key: MAIL_ID
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: APP_LINK
+        sync: false
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRY
+        value: 1d
