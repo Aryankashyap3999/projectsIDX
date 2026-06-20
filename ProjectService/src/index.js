@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT } from "./config/serverConfig.js";
+import { PORT, CORS_ORIGIN } from "./config/serverConfig.js";
 import apiRoutes from "./route/index.js"
 import { createServer } from 'http';
 import { Server } from "socket.io";
@@ -12,16 +12,21 @@ const app = express();
 
 const server = createServer(app);
 
+// Restrict CORS to configured origins; fall back to "*" when unset (dev).
+const allowedOrigins = CORS_ORIGIN
+    ? CORS_ORIGIN.split(',').map((o) => o.trim())
+    : '*';
+
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: allowedOrigins,
         methods: ['GET', 'POST']
     }
 });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({ origin: allowedOrigins }));
 
 app.use('/api', apiRoutes);
  

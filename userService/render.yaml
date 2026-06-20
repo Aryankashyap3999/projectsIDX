@@ -31,3 +31,9 @@ services:
         sync: false
       - key: JWT_EXPIRY
         value: 1d
+      - key: CORS_ORIGIN
+        sync: false
+      - key: BULL_BOARD_USER
+        sync: false
+      - key: BULL_BOARD_PASSWORD
+        sync: false

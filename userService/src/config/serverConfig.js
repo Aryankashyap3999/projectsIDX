@@ -27,3 +27,11 @@ export const JWT_SECRET = process.env.JWT_SECRET;
 
 export const JWT_EXPIRY = process.env.JWT_EXPIRY || '1d';
 
+// Comma-separated list of allowed origins. Unset => allow all (dev convenience).
+export const CORS_ORIGIN = process.env.CORS_ORIGIN;
+
+// Basic-auth credentials guarding the Bull Board UI at /ui.
+export const BULL_BOARD_USER = process.env.BULL_BOARD_USER;
+
+export const BULL_BOARD_PASSWORD = process.env.BULL_BOARD_PASSWORD;
+
