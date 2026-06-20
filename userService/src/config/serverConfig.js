@@ -17,6 +17,10 @@ export const MAIL_ID = process.env.MAIL_ID;
 
 export const MAIL_PASSWORD = process.env.MAIL_PASSWORD;
 
+// Full Redis connection URL (e.g. rediss://default:<pass>@host:6379 from Upstash).
+// Takes precedence over REDIS_HOST/REDIS_PORT when set.
+export const REDIS_URL = process.env.REDIS_URL;
+
 export const REDIS_PORT = process.env.REDIS_PORT || 6379;
 
 export const REDIS_HOST = process.env.REDIS_HOST || 'localhost';

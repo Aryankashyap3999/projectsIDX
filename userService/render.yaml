@@ -23,9 +23,7 @@ services:
         sync: false
       - key: APP_LINK
         sync: false
-      - key: REDIS_HOST
-        sync: false
-      - key: REDIS_PORT
+      - key: REDIS_URL
         sync: false
       - key: JWT_SECRET
         sync: false
